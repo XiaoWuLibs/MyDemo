@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="    重要须知━请认真阅读：本《最终用户许可协议》（以下称《协议》）是您（个人或单一机构团体）与计算机系统（以下称计算机），其内含上述软件产品（以下称软件产品或软件）的制造商（以下称软件供应商）之间的法律协议。您不得使用或复制软件品。软件产品包括计算机软件、相关媒体、何印刷材料及任何联机或电子文件。您一旦安装、复制或以其它方式利用软件产品，即表示您同意接受本《协议》各项条件的约束。如您不同意本《协议》的条件，则软件供应商不愿意给予您软件产品的使用许可权。如发生这种情况，则您不得安装或复制软件产品，并应立即与软件供应商联络，索取有关将未使用的产品退回并获得退款的说明。" />
+</LinearLayout>

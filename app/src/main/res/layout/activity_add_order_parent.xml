@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/activity_title" />
+
+        <EditText
+            android:id="@+id/et_bookName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="图书名称"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/et_bookAuther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="图书作者"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/et_bookPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="图书价格"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/et_bookDecreption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="图书描述"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_goodName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height_35"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="物品类型"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_goodName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="类型"
+                android:textSize="@dimen/fontsize_13" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_right" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height_35"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="我已阅读并同意"
+                android:textSize="@dimen/fontsize_13" />
+
+            <TextView
+                android:id="@+id/tv_serviceText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="《服务协议》"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/fontsize_13" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height_35"
+            android:layout_margin="@dimen/margin_10"
+            android:background="@color/light_blue"
+            android:text="我要下单"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\code\\My\\easuui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v11\\values-v11.xml",
+            "map": [
+                {
+                    "source": "E:\\code\\My\\easuui\\build\\intermediates\\bundles\\debug\\res\\values-v11\\values-v11.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,224,399",
+                        "endLines": "4,7,8",
+                        "endColumns": "12,12,84",
+                        "endOffsets": "219,394,479"
+                    }
+                }
+            ]
+        }
+    ]
+}

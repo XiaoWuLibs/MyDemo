@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/copper_1"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/copper_2"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/copper_3"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/copper_4"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/copper_5"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/copper_6"
+        android:duration="150" />
+
+</animation-list>

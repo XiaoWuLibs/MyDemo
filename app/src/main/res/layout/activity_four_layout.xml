@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.chaychan.library.BottomBarLayout
+        android:id="@+id/bbl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@color/white_gray"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@drawable/icon_user_32"
+            app:iconSelected="@drawable/icon_user_32"
+            app:itemMarginTop="-5dp"
+            app:itemText="首页"
+            app:itemTextSize="13sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/red" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@drawable/icon_shop_car_32"
+            app:iconSelected="@drawable/icon_shop_car_32"
+            app:itemMarginTop="-5dp"
+            app:itemText="关于"
+            app:itemTextSize="13sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/red" />
+
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@drawable/icon_shop_car_32"
+            app:iconSelected="@drawable/icon_shop_car_32"
+            app:itemMarginTop="-5dp"
+            app:itemText="购物车"
+            app:itemTextSize="13sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/red" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@drawable/icon_user_32"
+            app:iconSelected="@drawable/icon_user_32"
+            app:itemMarginTop="-5dp"
+            app:itemText="我的"
+            app:itemTextSize="13sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/red" />
+
+    </com.chaychan.library.BottomBarLayout>
+</LinearLayout>

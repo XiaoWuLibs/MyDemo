@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/margin_10"
+        android:text="开始:北京, 西二旗地铁站"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/margin_10"
+        android:text="结束:北京, 百度科技园"
+        android:textColor="@color/black" />
+
+    <FrameLayout
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="130dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_height_35"
+                android:layout_margin="@dimen/margin_1"
+                android:background="@drawable/content_five_activity_start_button_bg"
+                android:padding="@dimen/margin_5"
+                android:text="开始采集"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <Button
+                android:id="@+id/btn_end"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_height_35"
+                android:layout_margin="@dimen/margin_1"
+                android:background="@drawable/content_five_activity_stop_button_bg"
+                android:padding="@dimen/margin_5"
+                android:text="停止采集"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <com.example.my.util.DragFloatActionButton
+            android:id="@+id/btn_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@android:drawable/ic_menu_directions" />
+
+        <com.example.my.util.DragFloatActionButton
+            android:id="@+id/btn_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@android:drawable/ic_menu_revert" />
+
+        <com.example.my.util.DragFloatActionButton
+            android:id="@+id/btn_searchDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@android:drawable/ic_menu_search" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:orientation="vertical">
+
+            <me.bakumon.library.view.BulletinView
+                android:id="@+id/bulletin_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#30000000"
+                app:bulletinEnterAnim="@anim/bulletin_item_enter"
+                app:bulletinInterval="3000"
+                app:bulletinLeaveAnim="@anim/bulletin_item_leave" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/content_five_activity_text_bg"
+                android:gravity="center"
+                android:text="跑秒"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>

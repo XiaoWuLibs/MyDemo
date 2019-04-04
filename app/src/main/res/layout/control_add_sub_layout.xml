@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btn_sub"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/btn_sub_bg"
+        android:gravity="center"
+        android:text="-"
+        android:textColor="@color/red" />
+
+    <TextView
+        android:id="@+id/tv_showNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="1"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/btn_add_bg"
+        android:gravity="center"
+        android:text="+"
+        android:textColor="@color/white" />
+</LinearLayout>

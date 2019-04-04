@@ -1,0 +1,74 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="login_margin_top">70dp</dimen>
+    <dimen name="height_activity_title">45dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fontsize_13">13sp</dimen>
+    <dimen name="fontsize_12">12sp</dimen>
+    <dimen name="fontsize_14">14sp</dimen>
+    <dimen name="fontsize_15">15sp</dimen>
+    <dimen name="fontsize_16">16sp</dimen>
+    <dimen name="fontsize_18">18sp</dimen>
+    <dimen name="photo_width">72dp</dimen>
+    <dimen name="fontsize_20">20sp</dimen>
+    <dimen name="fontsize_22">22sp</dimen>
+    <dimen name="font_larger">22sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <!-- typical spacing between two views -->
+    <dimen name="spacing_large">22dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_3">3dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_1">1dp</dimen>
+
+    <dimen name="view_width_1">1dp</dimen>
+    <dimen name="view_height_1">1dp</dimen>
+    <dimen name="view_width_2">2dp</dimen>
+    <dimen name="view_height_2">2dp</dimen>
+    <dimen name="view_width_3">3dp</dimen>
+    <dimen name="view_height_3">3dp</dimen>
+    <dimen name="view_width_4">4dp</dimen>
+    <dimen name="view_height_4">4dp</dimen>
+    <dimen name="view_width_5">5dp</dimen>
+    <dimen name="view_height_5">5dp</dimen>
+    <dimen name="view_width_10">10dp</dimen>
+    <dimen name="view_height_10">10dp</dimen>
+    <dimen name="view_width_15">15dp</dimen>
+    <dimen name="view_height_15">15dp</dimen>
+    <dimen name="view_width_20">20dp</dimen>
+    <dimen name="view_height_20">20dp</dimen>
+    <dimen name="view_width_25">25dp</dimen>
+    <dimen name="view_height_25">25dp</dimen>
+    <dimen name="view_width_30">30dp</dimen>
+    <dimen name="view_height_30">30dp</dimen>
+    <dimen name="view_width_35">35dp</dimen>
+    <dimen name="view_height_35">35dp</dimen>
+    <dimen name="view_width_40">40dp</dimen>
+    <dimen name="view_height_40">40dp</dimen>
+    <dimen name="view_width_50">50dp</dimen>
+    <dimen name="view_height_50">50dp</dimen>
+
+    <dimen name="view_width_70">70dp</dimen>
+    <dimen name="view_height_70">70dp</dimen>
+    <dimen name="view_width_120">120dp</dimen>
+    <dimen name="view_height_120">120dp</dimen>
+    <dimen name="px_to_dip_12">6.00dp</dimen>
+    <dimen name="px_to_dip_14">7.00dp</dimen>
+    <dimen name="px_to_dip_8">4.00dp</dimen>
+    <dimen name="px_to_dip_20">10.00dp</dimen>
+    <dimen name="px_to_dip_24">12.00dp</dimen>
+    <dimen name="px_to_dip_48">24.00dp</dimen>
+    <dimen name="px_to_dip_230">115.00dp</dimen>
+    <dimen name="px_to_dip_90">45.00dp</dimen>
+</resources>

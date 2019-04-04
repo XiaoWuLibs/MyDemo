@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'bugly'
+
+//bugly {
+//    appId = '4c64453166'
+//    appKey = 'e724808b-2946-4f27-b270-bceda3f96f28'
+//    debug = true
+//    appPackage='com.example.my'
+//    appVersion='1.0'
+//}
+android {
+    compileSdkVersion 27
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.example.my"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+//        ndk {
+//            // 设置支持的SO库架构
+//            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+//        }
+        ndk {
+
+            abiFilters "armeabi", "armeabi-v7a"
+            // 如果您使用的是商业版，只能使用armeabi架构，即：
+            // abiFilters "armeabi",
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            //说明so的路径为该libs路径，关联所有地图SDK的so文件
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    compile 'com.github.addappcn:android-pickers:1.0.1'
+    compile 'org.litepal.android:core:1.6.1'
+    compile 'com.github.iwgang:countdownview:2.1.6'
+    compile 'com.github.chaychan:BottomBarLayout:1.0.8'
+    //底部菜单栏
+    implementation files('libs/BaiduLBS_Android.jar')
+    compile 'me.bakumon:bulletinview:1.0.0'
+    implementation 'com.android.support:design:27.1.1'
+    compile 'com.yanzhikai:TextPathView:0.1.2'
+    compile 'com.github.MagicMashRoom:SuperCalendar:1.6'
+    compile 'com.haibin:calendarview:3.3.0'
+    compile 'com.github.Idtk:SmallChart:v0.1.1'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+//    compile 'com.tencent.bugly:crashreport:2.8.6'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+//    compile 'com.tencent.bugly:nativecrashreport:3.6.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    compile(name: 'LiteAVSDK_Smart_5.4.6097', ext: 'aar')
+}

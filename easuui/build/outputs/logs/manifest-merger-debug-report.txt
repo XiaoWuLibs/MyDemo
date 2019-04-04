@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\code\My\easuui\src\main\AndroidManifest.xml:1:1-4:12
+INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml:1:1-4:12
+INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml:1:1-4:12
+	package
+		ADDED from E:\code\My\easuui\src\main\AndroidManifest.xml:1:70-100
+		INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+		INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\code\My\easuui\src\main\AndroidManifest.xml:1:11-69
+uses-sdk
+INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+		ADDED from E:\code\My\easuui\src\main\AndroidManifest.xml
+		INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml
+		ADDED from E:\code\My\easuui\src\main\AndroidManifest.xml
+		INJECTED from E:\code\My\easuui\src\main\AndroidManifest.xml

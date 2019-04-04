@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <dbname value="logistics" />
+
+    <version value="1" />
+
+    <list>
+        <mapping class="com.example.my.db.Address" />
+        <mapping class="com.example.my.db.Books" />
+        <mapping class="com.example.my.db.ShopCar" />
+        <mapping class="com.example.my.db.BigData" />
+        <mapping class="com.example.my.db.LatLngDB" />
+    </list>
+
+</litepal>
