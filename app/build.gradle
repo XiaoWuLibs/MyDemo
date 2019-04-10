@@ -13,7 +13,7 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.my"
-        minSdkVersion 19
+        minSdkVersion 25
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -65,4 +65,5 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
     compile(name: 'LiteAVSDK_Smart_5.4.6097', ext: 'aar')
+    implementation 'com.google.android.gms:play-services-ads:17.1.1'
 }

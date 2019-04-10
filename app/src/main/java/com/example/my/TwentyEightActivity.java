@@ -1,16 +1,14 @@
 package com.example.my;
 
-import android.annotation.SuppressLint;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 /**
  * Created by Administrator on 2018/9/12.
@@ -18,9 +16,7 @@ import android.widget.CheckBox;
 
 public class TwentyEightActivity extends AppCompatActivity {
     private static final String TAG = "TwentyEightActivity";
-
-    private CheckBox checkbox;
-    private Button btn_click;
+    private AdView adView;
     private Context mContext;
 
     @Override
@@ -37,48 +33,32 @@ public class TwentyEightActivity extends AppCompatActivity {
      */
     private void initView() {
         mContext = this;
-        checkbox = findViewById(R.id.checkbox);
-        btn_click = findViewById(R.id.btn_click);
-        btn_click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkbox.isSelected()) {
+        // Initialize the Mobile Ads SDK.
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
-                    checkbox.setSelected(false);
-                } else {
-                    checkbox.setSelected(true);
-                }
+        // Gets the ad view defined in layout/ad_fragment.xml with ad unit ID set in
+        // values/strings.xml.
+        adView = findViewById(R.id.ad_view);
 
-            }
-        });
+        // Create an ad request. Check your logcat output for the hashed device ID to
+        // get test ads on a physical device. e.g.
+        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        // Start loading the ad in the background.
+        adView.loadAd(adRequest);
     }
 
     /**
      * 配置控件
      */
     private void setData() {
-        clearDefaultLauncher();
+
     }
 
-    /**
-     * 清除默认桌面（采用先设置一个空的桌面为默认然后在将该空桌面禁用的方式来实现）
-     *
-     * @param cont
-     */
-    @SuppressLint("WrongConstant")
-    public void clearDefaultLauncher() {
-        PackageManager pm = mContext.getPackageManager();
-        String pn = mContext.getPackageName();
-        String hn = TwentyEightActivity.class.getName();
-        ComponentName mhCN = new ComponentName(pn, hn);
-        Intent homeIntent = new Intent("android.intent.action.MAIN");
-        homeIntent.addCategory("android.intent.category.HOME");
-        homeIntent.addCategory("android.intent.category.DEFAULT");
-        homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        pm.setComponentEnabledSetting(mhCN, 1, 1);
-        mContext.startActivity(homeIntent);
-        pm.setComponentEnabledSetting(mhCN, 0, 1);
-    }
+
 
     public static void startActivity(Context context) {
         Intent intent = new Intent();
@@ -86,8 +66,30 @@ public class TwentyEightActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
+    /** Called when leaving the activity */
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    /** Called when returning to the activity */
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed */
     @Override
     public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
         super.onDestroy();
     }
 }

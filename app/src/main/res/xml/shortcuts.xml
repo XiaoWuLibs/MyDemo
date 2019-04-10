@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<shortcut-->
+        <!--android:enabled="true"-->
+        <!--android:icon="@drawable/icon_user"-->
+        <!--android:shortcutDisabledMessage="设置"-->
+        <!--android:shortcutId="settings"-->
+        <!--android:shortcutLongLabel="1111111111111"-->
+        <!--android:shortcutShortLabel="00">-->
+
+        <!--<intent-->
+            <!--android:action="android.intent.action.VIEW"-->
+            <!--android:targetClass="com.example.my.TwentyEightActivity"-->
+            <!--android:targetPackage="com.example.my" />-->
+        <!--<categories android:name="android.shortcut.conversation" />-->
+    <!--</shortcut>-->
+</shortcuts>

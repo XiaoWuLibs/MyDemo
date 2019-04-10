@@ -7,6 +7,9 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
+import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -377,6 +380,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        setupShortcuts();
     }
 
     private List<Map<String, Object>> getData() {
@@ -398,6 +402,27 @@ public class MainActivity extends AppCompatActivity {
         map.put("title", "这是第4行测试数据");
         list.add(map);
         return list;
+    }
+
+    private void setupShortcuts() {
+        ShortcutManager mShortcutManager = getSystemService(ShortcutManager.class);
+
+        List<ShortcutInfo> infos = new ArrayList<>();
+        for (int i = 0; i < mShortcutManager.getMaxShortcutCountPerActivity(); i++) {
+            Intent intent = new Intent(this, TwentyEightActivity.class);
+            intent.setAction(Intent.ACTION_VIEW);
+
+            ShortcutInfo info = new ShortcutInfo.Builder(this, "id" + i)
+                    .setShortLabel("123")
+                    .setLongLabel("12345678900000000000000000")
+                    .setIcon(Icon.createWithResource(this, R.drawable.icon_user))
+                    .setIntent(intent)
+                    .build();
+            infos.add(info);
+//            manager.addDynamicShortcuts(Arrays.asList(info));
+        }
+
+        mShortcutManager.setDynamicShortcuts(infos);
     }
 
     /**
