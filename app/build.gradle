@@ -66,4 +66,5 @@ dependencies {
 
     compile(name: 'LiteAVSDK_Smart_5.4.6097', ext: 'aar')
     implementation 'com.google.android.gms:play-services-ads:17.1.1'
+    implementation 'com.orhanobut:logger:2.2.0'
 }

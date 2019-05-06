@@ -130,6 +130,9 @@
         <activity android:name=".TwentySixActivity" />
         <activity android:name=".TwentySevenActivity" />
         <activity android:name=".TwentyEightActivity" />
+        <activity android:name=".TwentyNineActivity" />
+        <activity android:name=".ThirtyActivity" />
+        <activity android:name=".ThirtyOneActivity" />
 
         <service
             android:name="com.baidu.location.f"

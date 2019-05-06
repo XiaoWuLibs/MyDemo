@@ -17,4 +17,5 @@
     <color name="RGB_FF8209">#FF8209</color>
     <color name="RGB_4FC1E9">#4FC1E9</color>
     <color name="FFF">#333333</color>
+    <color name="text_black">#1d1d1d</color>
 </resources>

@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -243,6 +244,49 @@ public class FileUtils {
     }
 
     /**
+     * 创建文件的路径及文件
+     *
+     * @param path     路径，方法中以默认包含了sdcard的路径，path格式是"/path...."
+     * @param filename 文件的名称
+     * @return 返回文件的路径，创建失败的话返回为空
+     */
+    public static String createMkdirsAndFiles(String path, String filename) {
+        if (TextUtils.isEmpty(path)) {
+            throw new RuntimeException("路径为空");
+        }
+        path = getSDCardRoot() + path;
+        File file = new File(path);
+        if (!file.exists()) {
+            try {
+                file.mkdirs();
+            } catch (Exception e) {
+                throw new RuntimeException("创建文件夹不成功");
+            }
+        }
+        File f = new File(file, filename);
+        if (!f.exists()) {
+            try {
+                f.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException("创建文件不成功");
+            }
+        }
+        return f.getAbsolutePath();
+    }
+
+    /**
+     * 得到sdcard的路径
+     *
+     * @return
+     */
+    public static String getSDCardRoot() {
+        if (isExternalStorageWritable()) {
+            return Environment.getExternalStorageDirectory().getAbsolutePath();
+        }
+        return "";
+    }
+
+    /**
      * 获取本地local完整下载路径
      *
      * @param context  context
@@ -258,11 +302,11 @@ public class FileUtils {
     }
 
     /**
-     * 获取 word 目录
+     * 获取本地文件保存 目录
      *
      * @param context  上下文
      * @param fileName 文件名
-     * @return 路径
+     * @return 完整本地文件所在路径
      */
     public static String getLocalSavePath_file(Context context, String fileName) {
         String savePath = getProjectRoot(context) + "file/" + fileName;
@@ -272,9 +316,42 @@ public class FileUtils {
         return null;
     }
 
+    /**
+     * 获取本地日志文件保存 目录
+     * 保存在根目录下
+     *
+     * @param context  上下文
+     * @param fileName 文件名
+     * @return 完整本地日志文件所在路径
+     */
+    public static String getLocalSavePath_log(Context context, String fileName) {
+        String savePath = getProjectRoot(context) + "log/" + fileName;
+        if (createDir(savePath)) {
+            return savePath;
+        }
+        return null;
+    }
+
+    /**
+     * 获取本地文件保存 目录
+     *
+     * @param context  上下文
+     * @param path     路径，方法中已经默认包含了sdcard的路径，path格式是"path/",相当于getLocalSavePath_log方法中的“log/”
+     * @param fileName 文件名
+     * @return 完整本地文件所在路径
+     */
+    public static String getLocalSavePath(Context context, String path, String fileName) {
+        String savePath = getProjectRoot(context) + path + fileName;
+        if (createDir(savePath)) {
+            return savePath;
+        }
+        return null;
+    }
 
     /**
      * 获取此项目文件存放目录
+     * 获取以AppName或者projectName为文件名的文件路径
+     * 比如： applicationId "com.example.my"，则在根目录下创建名为My的文件夹
      *
      * @param context 上下文
      * @return 目录
@@ -319,7 +396,13 @@ public class FileUtils {
         return s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18) + s.substring(19, 23) + s.substring(24);
     }
 
-    // 对文件进行压缩
+
+    /**
+     * 对文件进行压缩
+     *
+     * @param file
+     * @return
+     */
     public static byte[] compressToByte(File file) {
         InputStream inputStream = null;
         ByteArrayOutputStream out;
@@ -477,6 +560,27 @@ public class FileUtils {
         return true;
     }
 
+    /**
+     * 删除文件
+     *
+     * @param path
+     * @return
+     */
+    public static boolean deleteFile(String path) {
+        if (TextUtils.isEmpty(path)) {
+            throw new RuntimeException("路径为空");
+        }
+        File file = new File(path);
+        if (file.exists()) {
+            try {
+                file.delete();
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
 
     /**
      * 向文件中添加内容
@@ -508,6 +612,36 @@ public class FileUtils {
         }
     }
 
+    /**
+     * 把内容写入文件
+     *
+     * @param path 文件路径
+     * @param text 内容
+     */
+    public static void write2File(String path, String text, boolean append) {
+        BufferedWriter bw = null;
+        try {
+            //1.创建流对象
+            bw = new BufferedWriter(new FileWriter(path, append));
+            //2.写入文件
+            bw.write(text);
+            //换行刷新
+            bw.newLine();
+            bw.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            //4.关闭流资源
+            if (bw != null) {
+                try {
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     /**
      * 修改文件内容（覆盖或者添加）
@@ -615,9 +749,14 @@ public class FileUtils {
         return true;
     }
 
-
-    //文件拷贝
-    //要复制的目录下的所有非子目录(文件夹)文件拷贝
+    /**
+     * 文件拷贝
+     * 要复制的目录下的所有非子目录(文件夹)文件拷贝
+     *
+     * @param fromFile
+     * @param toFile
+     * @return
+     */
     public static boolean CopySdcardFile(String fromFile, String toFile) {
 
         try {
@@ -636,4 +775,6 @@ public class FileUtils {
             return false;
         }
     }
+
+
 }

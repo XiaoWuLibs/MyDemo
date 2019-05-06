@@ -4,11 +4,13 @@ import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.graphics.Typeface;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,9 +33,12 @@ import android.widget.Toast;
 import com.example.my.grid.SecondActivity;
 import com.tencent.rtmp.TXLiveBase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.example.my.util.CarNumOfAnyCity.getHBCarNumTagOfAnyCity;
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_ok_1, btn_ok, btn_2, btn_3, btn_5, btn_6, btn_7, btn_8,
             btn_9, btn_10, btn_11, btn_12, btn_13, btn_14, btn_15, btn_16,
             btn_17, btn_18, btn_19, btn_20, btn_21, btn_22, btn_23, btn_24,
-            btn_25, btn_26, btn_27, btn_28, btn_29, btn_30;
+            btn_25, btn_26, btn_27, btn_28, btn_29, btn_30, btn_31;
     public ImageView imgSource, imageView;
     ListView listView;
     private TimelineAdapter timelineAdapter;
@@ -135,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
         btn_28 = findViewById(R.id.btn_28);
         btn_29 = findViewById(R.id.btn_29);
         btn_30 = findViewById(R.id.btn_30);
+        btn_31 = findViewById(R.id.btn_31);
         btn_ok_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -346,6 +352,25 @@ public class MainActivity extends AppCompatActivity {
                 TwentyEightActivity.startActivity(MainActivity.this);
             }
         });
+        btn_29.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TwentyNineActivity.startActivity(MainActivity.this);
+            }
+        });
+        btn_30.setText("底部导航栏radioButton实现");
+        btn_30.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThirtyActivity.startActivity(MainActivity.this);
+            }
+        });
+        btn_31.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         listView.setDividerHeight(0);
         timelineAdapter = new TimelineAdapter(this, getData());
@@ -381,6 +406,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         setupShortcuts();
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "OpenSans-Light.ttf");
+        btn_30.setTypeface(typeface);
     }
 
     private List<Map<String, Object>> getData() {
@@ -460,6 +487,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "未授权 ", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public static void startActivity(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        context.startActivity(intent);
     }
 
     @Override

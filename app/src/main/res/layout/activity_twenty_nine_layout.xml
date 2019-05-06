@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_taobao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="淘宝" />
+
+    <Button
+        android:id="@+id/btn_jingdong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_5"
+        android:layout_toRightOf="@id/btn_taobao"
+        android:text="京东" />
+
+    <Button
+        android:id="@+id/btn_webjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_5"
+        android:layout_toRightOf="@id/btn_jingdong"
+        android:text="web京东" />
+
+    <Button
+        android:id="@+id/btn_toMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_5"
+        android:layout_toRightOf="@id/btn_webjd"
+        android:text="跳转到MainActivity" />
+
+    <EditText
+        android:id="@+id/et_001"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_toMain"
+        android:layout_marginTop="@dimen/margin_5" />
+
+    <Button
+        android:id="@+id/btn_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_001"
+        android:text="recycler和interfacedemo" />
+</RelativeLayout>

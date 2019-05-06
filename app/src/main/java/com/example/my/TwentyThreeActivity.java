@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.my.util.FileUtils;
+import com.example.my.util.Log.LogUtils;
+
+import java.util.logging.Logger;
 
 /**
  * Created by Administrator on 2018/9/12.
@@ -37,7 +40,7 @@ public class TwentyThreeActivity extends AppCompatActivity {
         btn_click2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                LogUtils.log(TwentyThreeActivity.this, "tag", "1546540316465", LogUtils.ERROR, true);
             }
         });
 
