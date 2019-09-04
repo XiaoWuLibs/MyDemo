@@ -133,6 +133,24 @@
         <activity android:name=".TwentyNineActivity" />
         <activity android:name=".ThirtyActivity" />
         <activity android:name=".ThirtyOneActivity" />
+        <activity android:name=".ThirtyTwoActivity" />
+
+        //萤石设备开始
+        <activity
+            android:name="com.videogo.main.EzvizWebViewActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity android:name=".EZActivity" />
+
+        <receiver
+            android:name=".receiver.EZReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.videogo.action.OAUTH_SUCCESS_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        //萤石设备结束
 
         <service
             android:name="com.baidu.location.f"

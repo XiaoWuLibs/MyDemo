@@ -5,31 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 
 /**
  * Created by  wsl
  * on 2019/4/15 14:34
  * 异常捕获工具类
  */
-public class ThirtyOneActivity extends AppCompatActivity {
-    public static final String TAG = "ThirtyOneActivity";
-    private TextView tvClick;
-    private Context context;
+public class ThirtyTwoActivity extends AppCompatActivity {
+    public static final String TAG = "ThirtyTwoActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thirty_one_layout);
-        context = this;
-        tvClick = findViewById(R.id.tvClick);
-        tvClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ThirtyTwoActivity.startActivity(context);
-            }
-        });
+        setContentView(R.layout.activity_thirty_two_layout);
         Log.i(TAG, "onCreate");
     }
 
@@ -72,7 +60,7 @@ public class ThirtyOneActivity extends AppCompatActivity {
 
     public static void startActivity(Context context) {
         Intent intent = new Intent();
-        intent.setClass(context, ThirtyOneActivity.class);
+        intent.setClass(context, ThirtyTwoActivity.class);
         context.startActivity(intent);
     }
 }

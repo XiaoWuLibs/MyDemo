@@ -33,12 +33,9 @@ import android.widget.Toast;
 import com.example.my.grid.SecondActivity;
 import com.tencent.rtmp.TXLiveBase;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import static com.example.my.util.CarNumOfAnyCity.getHBCarNumTagOfAnyCity;
@@ -49,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_ok_1, btn_ok, btn_2, btn_3, btn_5, btn_6, btn_7, btn_8,
             btn_9, btn_10, btn_11, btn_12, btn_13, btn_14, btn_15, btn_16,
             btn_17, btn_18, btn_19, btn_20, btn_21, btn_22, btn_23, btn_24,
-            btn_25, btn_26, btn_27, btn_28, btn_29, btn_30, btn_31;
+            btn_25, btn_26, btn_27, btn_28, btn_29, btn_30, btn_31, btn_32, btn_33;
     public ImageView imgSource, imageView;
     ListView listView;
     private TimelineAdapter timelineAdapter;
@@ -141,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
         btn_29 = findViewById(R.id.btn_29);
         btn_30 = findViewById(R.id.btn_30);
         btn_31 = findViewById(R.id.btn_31);
+        btn_32 = findViewById(R.id.btn_32);
+        btn_33 = findViewById(R.id.btn_33);
         btn_ok_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -368,6 +367,18 @@ public class MainActivity extends AppCompatActivity {
         btn_31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ThirtyOneActivity.startActivity(MainActivity.this);
+            }
+        });
+        btn_32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EZActivity.startActivity(MainActivity.this);
+            }
+        });
+        btn_33.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
@@ -405,7 +416,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        setupShortcuts();
+        if (Build.VERSION.SDK_INT >= 25) {
+            setupShortcuts();
+        }
         Typeface typeface = Typeface.createFromAsset(getAssets(), "OpenSans-Light.ttf");
         btn_30.setTypeface(typeface);
     }

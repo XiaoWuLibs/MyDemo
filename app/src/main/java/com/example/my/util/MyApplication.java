@@ -38,5 +38,7 @@ public class MyApplication extends LitePalApplication {
 //        strategy.setUploadProcess(processName == null || processName.equals(packageName));
 // 初始化Bugly
 //        CrashReport.initCrashReport(context, "4c64453166", true, strategy);
+
+
     }
 }

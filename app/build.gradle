@@ -13,17 +13,18 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.my"
-        minSdkVersion 25
+        minSdkVersion 23
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 //        ndk {
 //            // 设置支持的SO库架构
 //            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
 //        }
         ndk {
 
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi-v7a"
             // 如果您使用的是商业版，只能使用armeabi架构，即：
             // abiFilters "armeabi",
         }
@@ -67,4 +68,5 @@ dependencies {
     compile(name: 'LiteAVSDK_Smart_5.4.6097', ext: 'aar')
     implementation 'com.google.android.gms:play-services-ads:17.1.1'
     implementation 'com.orhanobut:logger:2.2.0'
+
 }
