@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn_ok_1, btn_ok, btn_2, btn_3, btn_5, btn_6, btn_7, btn_8,
             btn_9, btn_10, btn_11, btn_12, btn_13, btn_14, btn_15, btn_16,
             btn_17, btn_18, btn_19, btn_20, btn_21, btn_22, btn_23, btn_24,
-            btn_25, btn_26, btn_27, btn_28, btn_29, btn_30, btn_31, btn_32, btn_33;
+            btn_25, btn_26, btn_27, btn_28, btn_29, btn_30, btn_31, btn_32,
+            btn_33, btn_34;
     public ImageView imgSource, imageView;
     ListView listView;
     private TimelineAdapter timelineAdapter;
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         btn_31 = findViewById(R.id.btn_31);
         btn_32 = findViewById(R.id.btn_32);
         btn_33 = findViewById(R.id.btn_33);
+        btn_34 = findViewById(R.id.btn_34);
         btn_ok_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -379,7 +381,13 @@ public class MainActivity extends AppCompatActivity {
         btn_33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ThirtyThreeActivity.startActivity(MainActivity.this);
+            }
+        });
+        btn_34.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThirtyFourActivity.startActivity(MainActivity.this);
             }
         });
 

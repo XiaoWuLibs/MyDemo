@@ -141,6 +141,8 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity android:name=".EZActivity" />
+        <activity android:name=".ThirtyThreeActivity" />
+        <activity android:name=".ThirtyFourActivity" />
 
         <receiver
             android:name=".receiver.EZReceiver"

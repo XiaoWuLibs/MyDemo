@@ -11,6 +11,7 @@
     <color name="light_gray">#cccccc</color>
     <color name="white_gray">#F0F0F0</color>
     <color name="gray_red">#FF6A6A</color>
+    <color name="transparent">#00000000</color>
 
     <color name="RGB_656D78">#656D78</color>
     <color name="RGB_E6E9ED">#E6E9ED</color>

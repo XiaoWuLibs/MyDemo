@@ -62,4 +62,33 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <AutoCompleteTextView
+        android:id="@+id/ac_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionHint="相关词语"
+        android:completionThreshold="1"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="wrap_content"
+        android:dropDownHorizontalOffset="0dp"
+        android:dropDownVerticalOffset="0dp"
+        android:hint="请输入搜索关键词"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ivAnimain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_cur" />
 </FrameLayout>
