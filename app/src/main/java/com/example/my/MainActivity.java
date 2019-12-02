@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             btn_9, btn_10, btn_11, btn_12, btn_13, btn_14, btn_15, btn_16,
             btn_17, btn_18, btn_19, btn_20, btn_21, btn_22, btn_23, btn_24,
             btn_25, btn_26, btn_27, btn_28, btn_29, btn_30, btn_31, btn_32,
-            btn_33, btn_34;
+            btn_33, btn_34, btn_35, btn_36;
     public ImageView imgSource, imageView;
     ListView listView;
     private TimelineAdapter timelineAdapter;
@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         for (String str : bList) {
             Log.i("baList", str);
         }
-
 
         boolean isAllGranted = checkPermissionAllGranted(new String[]{
                 Manifest.permission.INTERNET,
@@ -142,6 +141,8 @@ public class MainActivity extends AppCompatActivity {
         btn_32 = findViewById(R.id.btn_32);
         btn_33 = findViewById(R.id.btn_33);
         btn_34 = findViewById(R.id.btn_34);
+        btn_35 = findViewById(R.id.btn_35);
+        btn_36 = findViewById(R.id.btn_36);
         btn_ok_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -388,6 +389,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ThirtyFourActivity.startActivity(MainActivity.this);
+            }
+        });
+        btn_35.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThirtyFiveActivity.startActivity(MainActivity.this);
+            }
+        });
+
+        btn_36.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThirtySixActivity.startActivity(MainActivity.this);
             }
         });
 

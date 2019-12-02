@@ -121,6 +121,34 @@
             android:layout_marginLeft="27dp"
             android:layout_marginRight="27dp"
             android:layout_marginBottom="80dp" />
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="@dimen/view_width_20"
+            android:layout_height="@dimen/view_height_15"
+            android:layout_gravity="center_horizontal"
+            android:rotation="180"
+            android:src="@drawable/icon_jiantou3"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/view_width_20"
+            android:layout_height="@dimen/view_height_15"
+            android:layout_gravity="center_horizontal"
+            android:rotation="180"
+            android:src="@drawable/icon_jiantou2"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="@dimen/view_width_20"
+            android:layout_height="@dimen/view_height_15"
+            android:layout_gravity="center_horizontal"
+            android:rotation="180"
+            android:src="@drawable/icon_jiantou1"
+            android:visibility="gone" />
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

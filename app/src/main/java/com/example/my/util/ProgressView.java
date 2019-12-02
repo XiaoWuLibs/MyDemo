@@ -1,12 +1,14 @@
 package com.example.my.util;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -55,7 +57,10 @@ public class ProgressView extends View {
     private int width, height;
 
     private float currentPercent = 0.3f;
-
+    /**
+     * 是否需要更新画笔的属性（例如：画笔颜色等）
+     */
+    private boolean update = false;
 
     public ProgressView(Context context) {
         super(context);
@@ -153,6 +158,21 @@ public class ProgressView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (update) {
+            //圆中心标题画笔
+            titlePaint.setColor(titleTextColor);
+            //圆中心数值画笔
+            numPaint.setColor(numTextColor);
+            //圆中心单位（unit）画笔
+            unitPaint.setColor(unitTextColor);
+            //环形进度条，未划过的进度条颜色
+            backCirclePaint.setColor(backCircleColor);
+            //环形进度条，已划过的进度条颜色
+            outerCirclePaint.setColor(outerCircleColor);
+            //环形进度条，终点大圆的颜色
+            endCirclePaint.setColor(endCircleColor);
+        }
+
         int centerX = width / 2;
         int centerY = height / 2;
 
@@ -196,13 +216,110 @@ public class ProgressView extends View {
         }
     }
 
+    /**
+     * 设置进度条中间的数值
+     *
+     * @param value 中间的值
+     */
     public void setValue(String value) {
         this.num = value;
         invalidate();
     }
 
+    /**
+     * 设置进度的百分比
+     * 即：如果规定max=100；curProgress = 50；则currentPercent= 50/100 = 0.5
+     *
+     * @param currentPercent 当前进度的百分比
+     */
     public void setCurrentPercent(float currentPercent) {
         this.currentPercent = currentPercent;
+        invalidate();
+    }
+
+    /**
+     * 设置标题内容
+     *
+     * @param title 标题内容
+     */
+    public void setTitle(String title) {
+        this.title = title;
+        invalidate();
+    }
+
+    /**
+     * 设置单位
+     *
+     * @param unit 单位
+     */
+    public void setUnit(String unit) {
+        this.unit = unit;
+        invalidate();
+    }
+
+    /**
+     * 设置标题的颜色
+     *
+     * @param color 颜色值
+     */
+    public void setTitleTextColor(@ColorInt int color) {
+        this.titleTextColor = ColorStateList.valueOf(color).getColorForState(getDrawableState(), 0);
+        update = true;
+        invalidate();
+    }
+
+    /**
+     * 设置num颜色
+     *
+     * @param color 颜色值
+     */
+    public void setNumTextColor(@ColorInt int color) {
+        this.numTextColor = ColorStateList.valueOf(color).getColorForState(getDrawableState(), 0);
+        update = true;
+        invalidate();
+    }
+
+    /**
+     * 设置unit的颜色
+     *
+     * @param color 颜色值
+     */
+    public void setUnitTextColor(@ColorInt int color) {
+        this.unitTextColor = ColorStateList.valueOf(color).getColorForState(getDrawableState(), 0);
+        update = true;
+        invalidate();
+    }
+
+    /**
+     * 设置背景圆的颜色
+     *
+     * @param color 颜色值
+     */
+    public void setBackCircleColor(@ColorInt int color) {
+        this.backCircleColor = ColorStateList.valueOf(color).getColorForState(getDrawableState(), 0);
+        update = true;
+        invalidate();
+    }
+
+    /**
+     * 设置划过的进度圆颜色
+     *
+     * @param color 颜色值
+     */
+    public void setOuterCircleColor(@ColorInt int color) {
+        this.outerCircleColor = ColorStateList.valueOf(color).getColorForState(getDrawableState(), 0);
+        update = true;
+        invalidate();
+    }
+
+    /**
+     * 设置终点大圆的颜色
+     *
+     * @param color 颜色值
+     */
+    public void setEndCircleColor(@ColorInt int color) {
+        this.endCircleColor = ColorStateList.valueOf(color).getColorForState(getDrawableState(), 0);
+        update = true;
         invalidate();
     }
 }

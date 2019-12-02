@@ -1,13 +1,23 @@
 package com.example.my.fragment;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,7 +27,9 @@ import com.example.my.ThirtyFourActivity;
 import com.example.my.adapter.ExamPaperNoAnswerFragmentDetailAdapter;
 import com.example.my.base.BaseFragment;
 import com.example.my.bean.Page;
+import com.example.my.interpolator.DecelerateAccelerateDecelerateInterpolator;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 
@@ -37,9 +49,17 @@ public class ExamPaperNoAnswerDetailFragment extends BaseFragment {
     private TextView tvSubmitRight;
     private RecyclerView recycleAnswer;
     private NestedScrollView scrollView;
+    private ImageView imageView1;
+    private ImageView imageView2;
+    private ImageView imageView3;
     private ExamPaperNoAnswerFragmentDetailAdapter deyailsAdapter;
     private int position;
     private List<Page.Quesition> questionList = null;
+    private MyHandler myHandler;
+    private TranslateAnimation animation;
+    private int repeat;
+    int height;
+    private MyReceiver myReceiver;
 
     public static ExamPaperNoAnswerDetailFragment newInstance(int position) {
         Bundle args = new Bundle();
@@ -56,7 +76,7 @@ public class ExamPaperNoAnswerDetailFragment extends BaseFragment {
 
     @Override
     protected void initView(View rootView) {
-
+        myHandler = new MyHandler(this);
         tvQueType = rootView.findViewById(R.id.tvQueType);
         tvQue = rootView.findViewById(R.id.tvQue);
         llPanDuanView = rootView.findViewById(R.id.llPanDuanView);
@@ -66,10 +86,14 @@ public class ExamPaperNoAnswerDetailFragment extends BaseFragment {
         tvSubmitRight = rootView.findViewById(R.id.tvSubmitRight);
         recycleAnswer = rootView.findViewById(R.id.recycleAnswer);
         scrollView = rootView.findViewById(R.id.scrollView);
+        imageView1 = rootView.findViewById(R.id.imageView1);
+        imageView2 = rootView.findViewById(R.id.imageView2);
+        imageView3 = rootView.findViewById(R.id.imageView3);
 
 
         tvSubmitLeft.setOnClickListener(onDoubleClickListener);
         tvSubmitRight.setOnClickListener(onDoubleClickListener);
+
 
     }
 
@@ -86,9 +110,41 @@ public class ExamPaperNoAnswerDetailFragment extends BaseFragment {
             initQues(quesCode, quesTitle, ifPicture, titlePic);
             initRecycler(answerList);
         }
+
+
+        height = getWindowXY();
+        initAnimation(height);
+
         //滑动到最顶部
         scrollView.scrollTo(0, 0);
 
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.example.my.fragment.ExamPaperNoAnswerDetailFragment.MyReceiver");
+        myReceiver = new MyReceiver();
+        context.registerReceiver(myReceiver, intentFilter);
+
+//        postMercWithHeight();
+
+    }
+
+    public void postMercWithHeight() {
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                int parentMeasuredHeight = scrollView.getChildAt(0).getHeight() + 570;
+                Log.i(TAG, "height:" + height + ";parentMeasuredHeight:" + parentMeasuredHeight);
+                if (parentMeasuredHeight > height) {
+//                    showToast("内容超过屏幕啦 ");
+//                    imageView1.setVisibility(View.VISIBLE);
+//                    imageView2.setVisibility(View.VISIBLE);
+//                    imageView3.setVisibility(View.VISIBLE);
+//                    playAnimation();
+                    //内容超过屏幕后，发送广播，对用户进行提示
+                    Intent intent1 = new Intent("com.example.my.ThirtyFourActivity.ThirtyFourReceiver");
+                    context.sendBroadcast(intent1);
+                }
+            }
+        });
     }
 
     /**
@@ -275,4 +331,110 @@ public class ExamPaperNoAnswerDetailFragment extends BaseFragment {
     };
 
 
+    /**
+     * 获取window尺寸
+     *
+     * @return 获取屏幕高度
+     */
+    private int getWindowXY() {
+        int height = 0;
+        try {
+            Display display = getActivity().getWindowManager().getDefaultDisplay();
+            Point point = new Point();
+            display.getSize(point);
+            height = point.y;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return height;
+    }
+
+    /**
+     * `初始化动画控件，并开始播放
+     *
+     * @param height 屏幕高度
+     */
+    private void initAnimation(int height) {
+        animation = new TranslateAnimation(0, 0, height - 800, height + 10);
+        animation.setDuration(2 * 1000);
+        animation.setInterpolator(new DecelerateAccelerateDecelerateInterpolator());
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                myHandler.sendEmptyMessage(1000);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+    }
+
+    /**
+     * 播放动画
+     */
+    private void playAnimation() {
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                myHandler.sendEmptyMessage(1000);
+            }
+        }, 500);
+    }
+
+    public static class MyHandler extends Handler {
+        static WeakReference<ExamPaperNoAnswerDetailFragment> weakReference;
+
+        public MyHandler(ExamPaperNoAnswerDetailFragment fragment) {
+            weakReference = new WeakReference<>(fragment);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            ExamPaperNoAnswerDetailFragment fragment = weakReference.get();
+            fragment.repeat++;
+            if (fragment.repeat <= 5) {
+                fragment.imageView1.startAnimation(fragment.animation);
+
+
+                fragment.imageView2.startAnimation(fragment.animation);
+
+
+                fragment.imageView3.startAnimation(fragment.animation);
+            } else {
+                fragment.animation.cancel();
+                fragment.repeat = 0;
+                fragment.imageView1.setVisibility(View.GONE);
+                fragment.imageView2.setVisibility(View.GONE);
+                fragment.imageView3.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    private class MyReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null) {
+                int currentPage = intent.getIntExtra("CurrentPage", 0);
+                if (currentPage == position) {
+                    postMercWithHeight();
+
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (myReceiver != null) {
+            context.unregisterReceiver(myReceiver);
+        }
+        super.onDestroy();
+    }
 }

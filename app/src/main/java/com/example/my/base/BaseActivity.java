@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import com.apkfuns.xprogressdialog.XProgressDialog;
 import com.example.my.helper.ActivityCollector;
 
 /**
@@ -31,6 +32,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     //封装Toast对象
     private static Toast toast;
     public Context context;
+
+    public static XProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -169,6 +172,28 @@ public abstract class BaseActivity extends AppCompatActivity {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         if (getCurrentFocus() != null && null != imm) {
             imm.showSoftInputFromInputMethod(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+
+    /**
+     * 启动加载框
+     *
+     * @param str 提示信息
+     */
+    public void showLoading(String str) {
+        if (progressDialog == null) {
+            progressDialog = new XProgressDialog(context);
+        }
+        progressDialog.setMessage(str);
+        progressDialog.show();
+    }
+
+    /**
+     * 启动加载框
+     */
+    public void cancelLoading() {
+        if (progressDialog != null) {
+            progressDialog.cancel();
         }
     }
 

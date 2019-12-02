@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/icon_exam_guide_pic_big" />
+        android:src="@drawable/icon_exam_guide_pic_big_blue" />
 
     <TextView
         android:id="@+id/tvTip"
@@ -22,7 +22,7 @@
         android:letterSpacing="0.2"
         android:text="左右滑动进行切换"
         android:textColor="@color/white"
-        android:textSize="@dimen/fontsize_16" />
+        android:textSize="@dimen/fontsize_22" />
 
     <TextView
         android:id="@+id/tvSubmit"

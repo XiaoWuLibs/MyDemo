@@ -90,5 +90,6 @@
         android:id="@+id/ivAnimain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/icon_cur" />
+        android:src="@drawable/icon_cur"
+        android:visibility="gone" />
 </FrameLayout>

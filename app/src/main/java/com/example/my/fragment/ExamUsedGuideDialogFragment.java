@@ -2,6 +2,7 @@ package com.example.my.fragment;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,6 +28,7 @@ public class ExamUsedGuideDialogFragment extends AppCompatDialogFragment {
     private static final String APP_TAG_FIRST_INTO_PAPER = "AppTagFirstIntoPaper";
     private View root;
     private ImageView image;
+    private TextView tvTip;
     private TextView tvSubmit;
 
     public static ExamUsedGuideDialogFragment newInstance() {
@@ -47,7 +49,11 @@ public class ExamUsedGuideDialogFragment extends AppCompatDialogFragment {
     }
 
     private void initView() {
+        Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), "字美确认过眼神体.ttf");
+
         image = root.findViewById(R.id.image);
+        tvTip = root.findViewById(R.id.tvTip);
+        tvTip.setTypeface(typeface);
         tvSubmit = root.findViewById(R.id.tvSubmit);
         final Animation animationInToOut = AnimationUtils.loadAnimation(getContext(), R.anim.exam_used_guide_scale_in_to_out);
         final Animation animationOutToIn = AnimationUtils.loadAnimation(getContext(), R.anim.exam_used_guide_scale_out_to_in);

@@ -275,6 +275,20 @@
                 android:text="问卷调查"
                 android:textColor="#000" />
 
+            <Button
+                android:id="@+id/btn_35"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="动画"
+                android:textColor="#000" />
+
+            <Button
+                android:id="@+id/btn_36"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="网络请求"
+                android:textColor="#000" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
